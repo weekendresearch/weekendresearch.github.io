@@ -100,3 +100,46 @@ ul li a:hover {
     border-radius: 15%; /* slightly smaller rounding */
     margin-bottom: 15px;
 }
+.researchers {
+    padding: 60px 0;
+    background-color: #f0f8ff; /* light blue background */
+}
+
+.researcher-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.researcher-card {
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.researcher-card:hover {
+    transform: translateY(-5px);
+}
+
+.researcher-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.researcher-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+}
+
+.researcher-card p {
+    font-size: 14px;
+    color: #555;
+}
