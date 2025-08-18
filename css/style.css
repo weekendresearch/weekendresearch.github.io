@@ -161,3 +161,12 @@ ul li a:hover {
 .projects-button:hover {
     background: #005fa3;
 }
+.project-list li {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.project-list .project-title {
+    font-size: 20px; /* bigger title */
+    color: #0077cc;
+}
