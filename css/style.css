@@ -94,3 +94,9 @@ ul li a:hover {
     background: #333;
     color: white;
 }
+.logo {
+    width: 80px;      /* smaller width */
+    height: 80px;     /* smaller height */
+    border-radius: 15%; /* slightly smaller rounding */
+    margin-bottom: 15px;
+}
