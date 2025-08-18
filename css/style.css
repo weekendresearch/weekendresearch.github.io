@@ -95,8 +95,8 @@ ul li a:hover {
     color: white;
 }
 .logo {
-    width: 150px;      /* smaller width */
-    height: 150px;     /* smaller height */
+    width: 220px;      /* smaller width */
+    height: 220px;     /* smaller height */
     border-radius: 15%; /* slightly smaller rounding */
     margin-bottom: 15px;
 }
