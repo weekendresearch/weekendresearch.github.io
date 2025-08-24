@@ -274,3 +274,10 @@ main {
     max-height: none;
   }
 }
+/* Mobile responsiveness (optional) */
+@media (max-width: 480px) {
+  .projects-link .projects-button {
+    flex: 1 1 100%; /* each button takes full width on very small screens */
+    text-align: center;
+  }
+}
