@@ -27,7 +27,15 @@ body {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
 }
-
+.hero a {
+  background: white;
+  color: #4f46e5;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.3s;
+  width: fit-content;
+}
 .profile-img {
     width: 150px;
     height: 150px;
