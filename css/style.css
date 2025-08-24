@@ -143,23 +143,27 @@ ul li a:hover {
     font-size: 14px;
     color: #555;
 }
-.projects-link {
-    text-align: center;
-    margin: 30px 0;
+.projects-link .container {
+  display: flex;
+  flex-wrap: wrap;   /* allows buttons to move to next line */
+  gap: 10px;         /* space between buttons */
+  justify-content: center; /* optional: center on screen */
+  margin: 1rem 0;
 }
 
-.projects-button {
-    font-size: 18px;
-    color: white;
-    background: #0077cc;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.3s;
+.projects-link .projects-button {
+  display: inline-block;   /* makes sure each button is treated separately */
+  padding: 0.75rem 1.5rem;
+  background: #007BFF;
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
 }
 
-.projects-button:hover {
-    background: #005fa3;
+.projects-link .projects-button:hover {
+  background: #0056b3;
 }
 .project-list li {
     margin-bottom: 20px;
