@@ -188,8 +188,10 @@ main {
   max-width: 1200px;
   width: 100%;
   box-sizing: border-box;
-}
-#subjects {
+}/* ============================
+   Section Buttons
+============================ */
+#subjects, #notes-subjects {
   display: flex;
   gap: 8px;
   margin-bottom: 15px;
@@ -198,15 +200,18 @@ main {
   padding-bottom: 8px;
 }
 
-#subjects::-webkit-scrollbar {
+#subjects::-webkit-scrollbar,
+#notes-subjects::-webkit-scrollbar {
   height: 6px;
 }
-#subjects::-webkit-scrollbar-thumb {
+
+#subjects::-webkit-scrollbar-thumb,
+#notes-subjects::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 3px;
 }
 
-.subject-btn {
+.subject-btn, .note-subject-btn {
   background-color: #007BFF;
   color: white;
   padding: 10px 15px;
@@ -216,80 +221,104 @@ main {
   flex: 0 0 auto;
 }
 
-.subject-btn:hover {
+.subject-btn:hover, .note-subject-btn:hover {
   background-color: #0056b3;
 }
 
-.subject-btn.active {
+.subject-btn.active, .note-subject-btn.active {
   background-color: #28a745;
 }
 
+/* ============================
+   Talks (Videos)
+============================ */
 #main-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-#player {
-  flex: 1 1 560px;
-  max-width: 100%;
-}
-
-#player iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 #video-list {
-  flex: 0 0 300px;
-  max-height: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   padding: 10px;
   overflow-y: auto;
+  max-height: 500px;
 }
 
-.video-title {
+#player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#video-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+/* ============================
+   Notes (PDFs)
+============================ */
+#notes-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+#notes-list {
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+#notes-viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pdf-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+/* ============================
+   Shared List Styles
+============================ */
+.video-title, .note-title {
+  padding: 8px;
+  margin-bottom: 5px;
   cursor: pointer;
-  margin: 6px 0;
-  color: #6a11cb;
-  white-space: nowrap;
-  overflow-x: auto;
-  display: block;
-  max-width: 100%;
-  font-weight: bold;
-  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
-.video-title.playing {
-  color: green;
+.video-title:hover, .note-title:hover {
+  background: #f0f0f0;
 }
 
-.video-title::-webkit-scrollbar {
-  height: 6px;
-}
-.video-title::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
+.video-title.playing, .note-title.playing {
+  background: #4f46e5;
+  color: white;
 }
 
-.video-title:hover {
-  color: darkred;
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  #main-container {
-    flex-direction: column;
+  #main-container, #notes-container {
+    grid-template-columns: 1fr;
   }
-  #video-list {
-    width: 100%;
+
+  #video-list, #notes-list {
     max-height: none;
+    width: 100%;
   }
-}
-/* Mobile responsiveness (optional) */
-@media (max-width: 480px) {
-  .projects-link .projects-button {
-    flex: 1 1 100%; /* each button takes full width on very small screens */
-    text-align: center;
+
+  #video-frame, #pdf-frame {
+    height: 300px;
   }
 }
