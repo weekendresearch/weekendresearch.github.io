@@ -8,61 +8,133 @@ const videosBySubject = {
   "Project 3": []
 };
 
-const subjectsDiv = document.getElementById("subjects");
+// Example data structure: projects and their notes (PDFs)
+const notesBySubject = {
+  "Project 1": [
+    { title: "My first paper-test", link: "https://drive.google.com/file/d/1sbsGxnnGkvqxd8JXU6IpTrb8ECum4rmW/preview" },
+    { title: "Additional Material", link: "https://drive.google.com/file/d/your-second-file-id/preview" }
+  ],
+  "Project 2": [
+    { title: "Project 2 Notes", link: "https://drive.google.com/file/d/your-project2-file-id/preview" }
+  ],
+  "Project 3": []
+};
+
+const talksSubjectsDiv = document.getElementById("subjects-talks");
 const videoListDiv = document.getElementById("video-list");
 const videoFrame = document.getElementById("video-frame");
-let activeButton = null;
-let currentPlaying = null; // track the playing title element
 
-// Create subject buttons
-Object.keys(videosBySubject).forEach(subject => {
+const notesSubjectsDiv = document.getElementById("subjects-notes");
+const notesListDiv = document.getElementById("notes-list");
+const pdfFrame = document.getElementById("pdf-frame");
+
+let activeTalkButton = null;
+let activeNotesButton = null;
+let currentPlaying = null;
+let currentNote = null;
+
+// ====== Talks Section ======
+Object.keys(videosBySubject).forEach((subject, idx) => {
   const btn = document.createElement("button");
   btn.innerText = subject;
   btn.className = "subject-btn";
   btn.onclick = () => {
-    if (activeButton) activeButton.classList.remove("active");
+    if (activeTalkButton) activeTalkButton.classList.remove("active");
     btn.classList.add("active");
-    activeButton = btn;
+    activeTalkButton = btn;
     loadVideos(subject);
   };
-  subjectsDiv.appendChild(btn);
+  talksSubjectsDiv.appendChild(btn);
+
+  // Load first project on page load
+  if (idx === 0) {
+    btn.classList.add("active");
+    activeTalkButton = btn;
+    loadVideos(subject);
+  }
 });
 
-// Load videos for selected subject
 function loadVideos(subject) {
-  videoListDiv.innerHTML = ""; // clear old list
+  videoListDiv.innerHTML = "";
   const videos = videosBySubject[subject];
 
   videos.forEach((video, index) => {
     const div = document.createElement("div");
     div.className = "video-title";
     div.innerText = video.title;
-    div.dataset.videoId = video.id; // store id for later
+    div.dataset.videoId = video.id;
     div.onclick = () => playVideo(video.id, div, true);
     videoListDiv.appendChild(div);
 
-    // Auto-play the first video
     if (index === 0) {
       playVideo(video.id, div, true);
     }
   });
 }
 
-// Play a selected video (with autoplay option)
 function playVideo(videoId, titleElement, autoplay = false) {
   let url = "https://www.youtube.com/embed/" + videoId;
   if (autoplay) {
-    url += "?autoplay=1&mute=1"; 
-    // note: 'mute=1' is needed because most browsers block auto-playing sound
+    url += "?autoplay=1&mute=1";
   }
   videoFrame.src = url;
 
-  // Update playing highlight
   if (currentPlaying) {
     currentPlaying.classList.remove("playing");
   }
   if (titleElement) {
     titleElement.classList.add("playing");
     currentPlaying = titleElement;
+  }
+}
+
+// ====== Notes Section ======
+Object.keys(notesBySubject).forEach((subject, idx) => {
+  const btn = document.createElement("button");
+  btn.innerText = subject;
+  btn.className = "subject-btn";
+  btn.onclick = () => {
+    if (activeNotesButton) activeNotesButton.classList.remove("active");
+    btn.classList.add("active");
+    activeNotesButton = btn;
+    loadNotes(subject);
+  };
+  notesSubjectsDiv.appendChild(btn);
+
+  // Load first project notes on page load
+  if (idx === 0) {
+    btn.classList.add("active");
+    activeNotesButton = btn;
+    loadNotes(subject);
+  }
+});
+
+function loadNotes(subject) {
+  notesListDiv.innerHTML = "";
+  const notes = notesBySubject[subject];
+
+  notes.forEach((note, index) => {
+    const div = document.createElement("div");
+    div.className = "note-title";
+    div.innerText = note.title;
+    div.dataset.link = note.link;
+    div.onclick = () => openPDF(note.link, div);
+    notesListDiv.appendChild(div);
+
+    if (index === 0) {
+      openPDF(note.link, div);
+    }
+  });
+}
+
+function openPDF(link, noteElement) {
+  pdfFrame.src = link;
+
+  if (currentNote) {
+    currentNote.classList.remove("playing");
+  }
+  if (noteElement) {
+    noteElement.classList.add("playing");
+    currentNote = noteElement;
   }
 }
