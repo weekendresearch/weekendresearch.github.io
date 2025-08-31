@@ -11,7 +11,7 @@ const videosBySubject = {
 // Example data structure: projects and their notes (PDFs)
 const notesBySubject = {
   "Project 1": [
-    { title: "My first paper-test", link: "https://drive.google.com/file/d/1sbsGxnnGkvqxd8JXU6IpTrb8ECum4rmW/preview" },
+    { title: "What is Single-Layer QAOA? (23-08-2025)", link: "https://drive.google.com/file/d/1nCqI3XvID7OHIsp7jGYrv1Rt_vbqBnps/preview" },
     { title: "Additional Material", link: "https://drive.google.com/file/d/your-second-file-id/preview" }
   ],
   "Project 2": [
