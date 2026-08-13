@@ -14,7 +14,7 @@ const notesBySubject = {
     { title: "What is Single-Layer QAOA? (23-08-2025)", link: "https://drive.google.com/file/d/1nCqI3XvID7OHIsp7jGYrv1Rt_vbqBnps/preview" },
     { title: "Additional Material", link: "https://drive.google.com/file/d/your-second-file-id/preview" }
   ],
-  "WR-2026-001": [
+  "WR-2026-002": [
     { title: "Project 2 Notes", link: "https://drive.google.com/file/d/your-project2-file-id/preview" }
   ],
   "Project 3": []
