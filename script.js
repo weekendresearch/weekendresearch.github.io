@@ -1,10 +1,10 @@
 // Example data structure: projects and their videos
 const videosBySubject = {
-  "Project 1": [
+  "WR-2026-001": [
     { title: "What is Single Layer QAOA?", id: "brvUuIOOQdg" },
     { title: "Another Talk on QAOA", id: "brvUuIOOQdg" }
   ],
-  "Project 2": [],
+  "WR-2026-002": [],
   "Project 3": []
 };
 
